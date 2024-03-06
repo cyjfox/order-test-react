@@ -93,3 +93,22 @@ button:hover {
   background-color: lightskyblue;
 
 }
+
+.top-nav{
+  /* border: 1px solid #ccc; */
+  padding: 10px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+  background-color: lightslategray;
+}
+
+.top-nav-link{
+  text-decoration: none;
+  color: black;
+  margin: 0 10px;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: lightpink;
+}

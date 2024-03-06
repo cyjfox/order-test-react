@@ -1,10 +1,9 @@
-import { cleanup } from '@testing-library/react';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import CustomerOrder from './components/CustomerOrder';
-import { PetOrder } from './components/PetOrder';
+import CustomerOrder from './CustomerOrder';
+import TopNav from './TopNav';
 
-function App() {
+function PendingCustomer() {
   
   const [data, setData] = useState([])
   
@@ -17,13 +16,16 @@ function App() {
   return (
 
   <div>
+      <TopNav />
       <nav className="nav">
-        <Link className="nav-link" to={"/create-customer"}>
+        <Link className="nav-link" to={"/pending-customer"}>
           Pending Customer Orders
         </Link>
-        <Link className="nav-link" to={"/create-pet"}>
+        <Link className="nav-link" to={"/pending-pet"}>
           Pending Pet Orders
         </Link>
+
+        <input style={{width: "50%"}} type="text" placeholder="Search.."/>
       </nav>
 
       <h2>All Pending Customer Specimen Orders</h2>
@@ -38,4 +40,4 @@ function App() {
   );
 }
 
-export default App;
+export default PendingCustomer;

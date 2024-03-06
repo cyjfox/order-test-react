@@ -1,6 +1,7 @@
 import { React, useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/create-order.css";
+import CustomerTopNav from "./CustomerTopNav";
 
 const CreateCustomer = () => {
   const initialState = {
@@ -75,6 +76,7 @@ const CreateCustomer = () => {
 
   return (
     <div className="form-container">
+      <CustomerTopNav />
       <nav className="nav">
         <Link className="nav-link" to={"/create-customer"}>
           Human Specimen

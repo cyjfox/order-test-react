@@ -3,10 +3,14 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {createBrowserRouter, createRoutesFromElements, RouterProvider, Route, Routes} from "react-router-dom" 
-import Homepage  from './components/Homepage';
 import CreatePet from './components/CreatePet';
 import CreateCustomer from './components/CreateCustomer';
-
+import AllPets from './components/AllPets';
+import AllCustomers from './components/AllCustomers';
+import PendingCustomer from './components/PendingCustomer';
+import PendingPet from './components/PendingPet';
+import { AllVendorPetOrders } from './components/AllVendorPetOrders';
+import AllVendorCustomerOrders from './components/AllVendorCustomerOrders';
 
 const router = createBrowserRouter([
   {
@@ -18,9 +22,29 @@ const router = createBrowserRouter([
     element: <CreateCustomer/>,
   },
   {
-    path: '/contact',
-    element: <App/>,
+    path: '/all-pets',
+    element: <AllPets />,
   },
+  {
+    path : '/all-customers',
+    element : <AllCustomers />
+  },
+  {
+    path : '/pending-customer',
+    element : <PendingCustomer />
+  },
+  {
+    path : "/pending-pet",
+    element : <PendingPet /> 
+  },
+  {
+    path : "/user/customer/history",
+    element : <AllVendorCustomerOrders />
+  },
+  {
+    path : '/user/pet/history',
+    element : <AllVendorPetOrders />
+  }
 ]);
 
 
