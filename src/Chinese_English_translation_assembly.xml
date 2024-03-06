@@ -1,89 +1,34 @@
-import React, { useState } from "react";
-import "../styles/create-order.css";
-import { Link } from "react-router-dom";
-import TopNav from "./TopNav";
-import CustomerTopNav from "./CustomerTopNav";
+last_name 姓氏
+first_name 名字
+customer_id 客户编号
+order_id 订单编号
+lab_id 实验室编号
+Chinese_name 中文名字
+id_number 编号 **
+passport_number 证件号码 **
+sex 性别
+date_of_birth 生日
+is_tailormade 是否为定制 **
+is_free_sample 是否为免费样本 **
+test_performed_by 检验者 **
+clinic_name 诊所名称 **
+doctor_name 医生姓名
+concerned_issues 涉及问题 **
+s_quality S质量 **
+emotion_problem 情绪问题 **
+project_code 项目代码
+project_name 项目名称
+clinic_trial_code 临床试验代码 **
+clinic_trial_time_point 临床试验时间点 **
+extraction_date 采样日期 **
+test_date 检验日期
+report_ready_date 报告完成日期 **
+remarks 备注
+medical_history 医疗历史 **
 
-const CreatePet = () => {
-  const initialState = {
-    pet_sex: "M",
-    pet_name: "",
-    animal_type: "",
-    breed: "",
-    neutere_status: "",
-    owner_surname: "",
-    owner_given_name: "",
-    email: "",
-    phone: "",
-    address: "",
-    postal_code: "",
-    reception_date: "",
-    collection_date: "",
-    collection_time: "",
-    specimen_type: "",
-    specimen_origin: "",
-    previous_id: "",
-    panel_code: "",
-    project_name: "",
-    is_tailormade: "True",
-    test_performed_by: "",
-    clinic_name: "",
-    doctor_name: "",
-    concerned_issues: "",
-    s_quality: "",
-    emotion_problem: "",
-    project_code: "",
-    clinic_trial_code: "",
-    clinic_trial_time_point: "",
-    is_free_sample: "False",
-    is_rejected: "False",
-    extraction_date: "",
-    test_date: "",
-    report_ready_date: "",
-    remarks: "",
-    medical_history: "",
-  };
 
-  const [formData, setFormData] = useState(initialState);
 
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormData({
-      ...formData,
-      [name]: type === "checkbox" ? checked : value,
-    });
-    console.log(formData);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    fetch("http://localhost:5050/create-pet", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json", // Set the content type header
-      },
-      body: JSON.stringify(formData), // Convert the body to JSON string
-    })
-      .then((res) => res.text())
-      .then((data) => alert(data));
-  };
-
-  return (
-    <div class="form-container">
-      <CustomerTopNav />
-      <nav className="nav">
-        <Link className="nav-link" to={"/create-customer"}>
-          Human Specimen
-        </Link>
-        <Link className="nav-link" to={"/create-pet"}>
-          Pet Specimen
-        </Link>
-      </nav>
-
-      <h2>Pet Specimen Order</h2>
-      <form class="page-main-table">
-        <div className="pad-div">
-          <label>性别:</label>
+SEX:</label>
           <input
             type="radio"
             name="pet_sex"
@@ -91,7 +36,7 @@ const CreatePet = () => {
             checked={formData.pet_sex === "M"}
             onChange={handleChange}
           />{" "}
-          雄性
+          Male
           <input
             type="radio"
             name="pet_sex"
@@ -99,12 +44,12 @@ const CreatePet = () => {
             checked={formData.pet_sex === "F"}
             onChange={handleChange}
           />{" "}
-          雌性
+          Female
         </div>
 
         <div>
           <label htmlFor="pet_name" class="label">
-            宠物名称:
+            Pet Name:
           </label>
           <input
             type="text"
@@ -116,7 +61,7 @@ const CreatePet = () => {
 
         <div>
           <label htmlFor="animal_type" class="label">
-            动物种类:
+            Animal Type:
           </label>
           <input
             type="text"
@@ -147,7 +92,7 @@ const CreatePet = () => {
 
         <div>
           <label htmlFor="owner_surname" class="label">
-            主人姓氏:
+            Owner Surname:
           </label>
           <input
             type="text"
@@ -159,7 +104,7 @@ const CreatePet = () => {
 
         <div>
           <label htmlFor="owner_given_name" class="label">
-            主人名字:
+            Owner Given Name:
           </label>
           <input
             type="text"
@@ -171,21 +116,21 @@ const CreatePet = () => {
 
         <div>
           <label htmlFor="email" class="label">
-            电子邮件:
+            Email:
           </label>
           <input type="email" name="email" id="email" onChange={handleChange} />
         </div>
 
         <div>
           <label htmlFor="phone" class="label">
-            电话:
+            Phone:
           </label>
           <input type="tel" name="phone" id="phone" onChange={handleChange} />
         </div>
 
         <div>
           <label htmlFor="address" class="label">
-            地址:
+            Address:
           </label>
           <input
             type="text"
@@ -197,7 +142,7 @@ const CreatePet = () => {
 
         <div>
           <label class="label" htmlFor="postal_code">
-            邮政编码:
+            POSTAL CODE:
           </label>
           <input
             type="number"
@@ -209,7 +154,7 @@ const CreatePet = () => {
 
         <div>
           <label class="label" htmlFor="reception_date">
-            接受日期
+            Reception Date
           </label>
           <input
             type="text"
@@ -221,7 +166,7 @@ const CreatePet = () => {
 
         <div>
           <label class="label" htmlFor="collection_date">
-            收集日期
+            Colection Date
           </label>
           <input
             type="text"
@@ -233,7 +178,7 @@ const CreatePet = () => {
 
         <div>
           <label class="label" htmlFor="collection_time">
-            收集时间:
+            Collection Time:
           </label>
           <input
             type="text"
@@ -245,7 +190,7 @@ const CreatePet = () => {
 
         <div>
           <label class="label" htmlFor="specimen_type">
-            标本类型:
+            Specimen Type:
           </label>
           <input
             type="text"
@@ -256,7 +201,7 @@ const CreatePet = () => {
         </div>
 
         <div>
-          <label htmlFor="specimen_origin">标本出处:</label>
+          <label htmlFor="specimen_origin">Specimen Origin:</label>
           <input
             type="text"
             name="specimen_origin"
@@ -266,7 +211,7 @@ const CreatePet = () => {
         </div>
 
         <div className="pad-div">
-          <label htmlFor="is_tailormade">是否为定制: </label>
+          <label htmlFor="is_tailormade">Is Tailormade: </label>
           <input
             id="is_tailormade"
             name="is_tailormade"
@@ -275,7 +220,7 @@ const CreatePet = () => {
             checked={formData.is_tailormade === "True"}
             onChange={handleChange}
           />{" "}
-          是
+          Yes
           <input
             id="is_tailormade"
             name="is_tailormade"
@@ -284,12 +229,12 @@ const CreatePet = () => {
             checked={formData.is_tailormade === "False"}
             onChange={handleChange}
           />{" "}
-          否
+          No
         </div>
 
         <div>
           <label class="label" htmlFor="previous_id">
-            上个编号:
+            Previous ID:
           </label>
           <input
             type="text"
@@ -301,7 +246,7 @@ const CreatePet = () => {
 
         <div>
           <label class="label" htmlFor="panel_code">
-            面板代码:
+            Panel CODE:
           </label>
           <input
             type="text"
@@ -313,7 +258,7 @@ const CreatePet = () => {
 
         <div>
           <label class="label" htmlFor="project_name">
-            项目名称:
+            Project Name:
           </label>
           <input
             type="text"
@@ -325,7 +270,7 @@ const CreatePet = () => {
 
         <div>
           <label class="label" htmlFor="test_performed_by">
-            检验者:
+            Test Performed By:
           </label>
           <input
             type="text"
@@ -337,7 +282,7 @@ const CreatePet = () => {
 
         <div>
           <label class="label" htmlFor="clinic_name">
-            诊所名称:
+            Clinic Name:
           </label>
           <input
             type="text"
@@ -349,7 +294,7 @@ const CreatePet = () => {
 
         <div>
           <label class="label" htmlFor="doctor_name">
-            医生姓名:
+            Doctor Name:
           </label>
           <input
             type="text"
@@ -361,7 +306,7 @@ const CreatePet = () => {
 
         <div>
           <label class="label" htmlFor="concerned_issues">
-            涉及问题:
+            Concerned Issues:
           </label>
           <input
             type="text"
@@ -373,7 +318,7 @@ const CreatePet = () => {
 
         <div>
           <label class="label" htmlFor="s_quality">
-            S质量:
+            S Quality:
           </label>
           <input
             type="text"
@@ -385,7 +330,7 @@ const CreatePet = () => {
 
         <div>
           <label class="label" htmlFor="emotion_problem">
-            情绪问题:
+            Emotion Problem:
           </label>
           <input
             type="text"
@@ -397,7 +342,7 @@ const CreatePet = () => {
 
         <div>
           <label class="label" htmlFor="project_code">
-            项目代码:
+            Project Code:
           </label>
           <input
             type="text"
@@ -409,7 +354,7 @@ const CreatePet = () => {
 
         <div>
           <label class="label" htmlFor="project_name">
-            项目名称:
+            Project Name:
           </label>
           <input
             type="text"
@@ -421,7 +366,7 @@ const CreatePet = () => {
 
         <div>
           <label class="label" htmlFor="clinic_trial_code">
-            临床试验代码:
+            Clinic Trial Code:
           </label>
           <input
             type="text"
@@ -433,7 +378,7 @@ const CreatePet = () => {
 
         <div>
           <label class="label" htmlFor="clinic_trial_time_point">
-            临床试验时间点:
+            Clinic Trial Time Point:
           </label>
           <input
             onChange={handleChange}
@@ -444,7 +389,7 @@ const CreatePet = () => {
         </div>
 
         <div className="pad-div">
-          <label htmlFor="is_free_sample">是否为免费样本:</label>
+          <label htmlFor="is_free_sample">Is Free Sample:</label>
           <input
             id="is_free_sample"
             name="is_free_sample"
@@ -453,7 +398,7 @@ const CreatePet = () => {
             checked={formData.is_free_sample === "True"}
             onChange={handleChange}
           />{" "}
-          是
+          Yes
           <input
             id="is_free_sample"
             name="is_free_sample"
@@ -462,12 +407,12 @@ const CreatePet = () => {
             checked={formData.is_free_sample === "False"}
             onChange={handleChange}
           />{" "}
-          否
+          No
         </div>
 
         <div>
           <label class="label" htmlFor="extraction_date">
-            采样日期:
+            Extraction Date:
           </label>
           <input
             type="number"
@@ -479,7 +424,7 @@ const CreatePet = () => {
 
         <div>
           <label class="label" htmlFor="test_date">
-            检验日期:
+            Test Date:
           </label>
           <input
             type="text"
@@ -491,7 +436,7 @@ const CreatePet = () => {
 
         <div>
           <label class="label" htmlFor="report_ready_date">
-            报告完成日期:
+            Report Ready Date:
           </label>
           <input
             type="text"
@@ -503,7 +448,7 @@ const CreatePet = () => {
 
         <div>
           <label class="label" htmlFor="remarks">
-            备注:
+            Remarks:
           </label>
           <input
             type="text"
@@ -515,7 +460,7 @@ const CreatePet = () => {
 
         <div>
           <label class="label" htmlFor="medical_history">
-            医疗历史:
+            MEDICAL HISTORY:
           </label>
           <input
             type="text"
@@ -524,13 +469,3 @@ const CreatePet = () => {
             id="medical_history"
           />
         </div>
-
-        <button type="submit" onClick={handleSubmit}>
-          提交
-        </button>
-      </form>
-    </div>
-  );
-};
-
-export default CreatePet;
