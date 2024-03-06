@@ -89,7 +89,7 @@ const CreateCustomer = () => {
       <form className="page-main-table">
         {/* Input fields and labels */}
         <div>
-          <label htmlFor="last_name">LAST NAME:</label>
+          <label htmlFor="last_name">姓氏:</label>
           <input
             id="last_name"
             name="last_name"
@@ -99,7 +99,7 @@ const CreateCustomer = () => {
           />
         </div>
         <div>
-          <label htmlFor="first_name">FIRST NAME:</label>
+          <label htmlFor="first_name">名字:</label>
           <input
             id="first_name"
             name="first_name"
@@ -111,7 +111,7 @@ const CreateCustomer = () => {
 
         <div>
           <label className="label" htmlFor="customer_id">
-            CUSTOMER ID:
+            客户编号:
           </label>
           <input
             onChange={handleChange}
@@ -123,7 +123,7 @@ const CreateCustomer = () => {
 
         <div>
           <label className="label" htmlFor="order_id">
-            order_id:
+            订单编号:
           </label>
           <input
             onChange={handleChange}
@@ -135,7 +135,7 @@ const CreateCustomer = () => {
 
         <div>
           <label className="label" htmlFor="lab_id">
-            Lab ID:
+            实验室编号:
           </label>
           <input
             onChange={handleChange}
@@ -147,7 +147,7 @@ const CreateCustomer = () => {
 
         <div>
           <label className="label" htmlFor="Chinese_name">
-            CHINESE NAME:
+            中文名字:
           </label>
           <input
             onChange={handleChange}
@@ -159,7 +159,7 @@ const CreateCustomer = () => {
 
         <div>
           <label className="label" htmlFor="id_number">
-            ID NUMBER:
+            编号:
           </label>
           <input
             onChange={handleChange}
@@ -171,7 +171,7 @@ const CreateCustomer = () => {
 
         <div>
           <label className="label" htmlFor="passport_number">
-            PASSPORT NUMBER:
+            证件号码:
           </label>
           <input
             onChange={handleChange}
@@ -182,7 +182,7 @@ const CreateCustomer = () => {
         </div>
 
         <div className="pad-div">
-          <label>SEX:</label>
+          <label>性别:</label>
           <input
             type="radio"
             name="sex"
@@ -190,7 +190,7 @@ const CreateCustomer = () => {
             checked={formData.sex === "M"}
             onChange={handleChange}
           />{" "}
-          Male
+          男
           <input
             type="radio"
             name="sex"
@@ -198,12 +198,12 @@ const CreateCustomer = () => {
             checked={formData.sex === "F"}
             onChange={handleChange}
           />{" "}
-          Female
+          女
         </div>
 
         <div>
           <label className="label" htmlFor="date_of_birth">
-            Date of Birth:
+            生日:
           </label>
           <input
             onChange={handleChange}
@@ -214,7 +214,7 @@ const CreateCustomer = () => {
         </div>
 
         <div className="pad-div">
-          <label htmlFor="is_tailormade">Is Tailormade: </label>
+          <label htmlFor="is_tailormade">是否为定制: </label>
           <input
             id="is_tailormade"
             name="is_tailormade"
@@ -223,7 +223,7 @@ const CreateCustomer = () => {
             checked={formData.is_tailormade === "True"}
             onChange={handleChange}
           />{" "}
-          Yes
+          是
           <input
             id="is_tailormade"
             name="is_tailormade"
@@ -232,11 +232,11 @@ const CreateCustomer = () => {
             checked={formData.is_tailormade === "False"}
             onChange={handleChange}
           />{" "}
-          No
+          否
         </div>
 
         <div className="pad-div">
-          <label htmlFor="is_free_sample">Is Free Sample:</label>
+          <label htmlFor="is_free_sample">是否为免费样本:</label>
           <input
             id="is_free_sample"
             name="is_free_sample"
@@ -245,7 +245,7 @@ const CreateCustomer = () => {
             checked={formData.is_free_sample === "True"}
             onChange={handleChange}
           />{" "}
-          Yes
+          是
           <input
             id="is_free_sample"
             name="is_free_sample"
@@ -254,12 +254,12 @@ const CreateCustomer = () => {
             checked={formData.is_free_sample === "False"}
             onChange={handleChange}
           />{" "}
-          No
+          否
         </div>
 
         <div>
           <label className="label" htmlFor="test_performed_by">
-            Test Performed By:
+            检验者:
           </label>
           <input
             onChange={handleChange}
@@ -271,7 +271,7 @@ const CreateCustomer = () => {
 
         <div>
           <label className="label" htmlFor="clinic_name">
-            Clinic Name:
+            诊所名称:
           </label>
           <input
             onChange={handleChange}
@@ -283,7 +283,7 @@ const CreateCustomer = () => {
 
         <div>
           <label className="label" htmlFor="doctor_name">
-            Doctor Name:
+            医生姓名:
           </label>
           <input
             onChange={handleChange}
@@ -295,7 +295,7 @@ const CreateCustomer = () => {
 
         <div>
           <label className="label" htmlFor="concerned_issues">
-            Concerned Issues:
+            涉及问题:
           </label>
           <input
             onChange={handleChange}
@@ -307,7 +307,7 @@ const CreateCustomer = () => {
 
         <div>
           <label className="label" htmlFor="s_quality">
-            S Quality:
+            S质量:
           </label>
           <input
             onChange={handleChange}
@@ -319,7 +319,7 @@ const CreateCustomer = () => {
 
         <div>
           <label className="label" htmlFor="emotion_problem">
-            Emotion Problem:
+            情绪问题:
           </label>
           <input
             onChange={handleChange}
@@ -331,7 +331,7 @@ const CreateCustomer = () => {
 
         <div>
           <label className="label" htmlFor="project_code">
-            Project Code:
+            项目代码:
           </label>
           <input
             onChange={handleChange}
@@ -343,7 +343,7 @@ const CreateCustomer = () => {
 
         <div>
           <label className="label" htmlFor="project_name">
-            Project Name:
+            项目名称:
           </label>
           <input
             onChange={handleChange}
@@ -355,7 +355,7 @@ const CreateCustomer = () => {
 
         <div>
           <label className="label" htmlFor="clinic_trial_code">
-            Clinic Trial Code:
+            临床试验代码:
           </label>
           <input
             onChange={handleChange}
@@ -367,7 +367,7 @@ const CreateCustomer = () => {
 
         <div>
           <label className="label" htmlFor="clinic_trial_time_point">
-            Clinic Trial Time Point:
+            临床试验时间点:
           </label>
           <input
             onChange={handleChange}
@@ -379,7 +379,7 @@ const CreateCustomer = () => {
 
         <div>
           <label className="label" htmlFor="extraction_date">
-            Extraction Date:
+            采样日期:
           </label>
           <input
             onChange={handleChange}
@@ -391,7 +391,7 @@ const CreateCustomer = () => {
 
         <div>
           <label className="label" htmlFor="test_date">
-            Test Date:
+            检验日期:
           </label>
           <input
             onChange={handleChange}
@@ -403,7 +403,7 @@ const CreateCustomer = () => {
 
         <div>
           <label className="label" htmlFor="report_ready_date">
-            Report Ready Date:
+            报告完成日期:
           </label>
           <input
             onChange={handleChange}
@@ -415,7 +415,7 @@ const CreateCustomer = () => {
 
         <div>
           <label className="label" htmlFor="remarks">
-            Remarks:
+            备注:
           </label>
           <input
             onChange={handleChange}
@@ -426,7 +426,7 @@ const CreateCustomer = () => {
         </div>
 
         <div>
-          <label htmlFor="medical_history">MEDICAL HISTORY:</label>
+          <label htmlFor="medical_history">医疗历史:</label>
           <textarea
             id="medical_history"
             name="medical_history"
@@ -436,7 +436,7 @@ const CreateCustomer = () => {
         </div>
         <div>
           <button type="submit" onClick={handleSubmit}>
-            SUBMIT
+            提交
           </button>
         </div>
       </form>
