@@ -132,14 +132,14 @@ const CreatePet = () => {
 
         <div>
           <label htmlFor="breed" class="label">
-            Breed:
+            血统:
           </label>
           <input type="text" name="breed" id="breed" onChange={handleChange} />
         </div>
 
         <div>
           <label htmlFor="neutered_status" class="label">
-            Neutered Status:
+            绝育状态:
           </label>
           <input
             type="text"
@@ -257,7 +257,7 @@ const CreatePet = () => {
 
         <div>
           <label class="label" htmlFor="collection_date">
-            收集日期
+            收样日期:
           </label>
           <input
             type="text"
@@ -292,7 +292,7 @@ const CreatePet = () => {
         </div>
 
         <div>
-          <label htmlFor="specimen_origin">标本出处:</label>
+          <label htmlFor="specimen_origin">标本来源:</label>
           <input
             type="text"
             name="specimen_origin"
@@ -503,7 +503,7 @@ const CreatePet = () => {
 
         <div>
           <label class="label" htmlFor="extraction_date">
-            采样日期:
+            提取日期:
           </label>
           <input
             type="number"

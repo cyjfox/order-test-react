@@ -1,3 +1,5 @@
+CreateCustomer.jsx
+
 last_name 姓氏
 first_name 名字
 customer_id 客户编号
@@ -12,7 +14,7 @@ is_tailormade 是否为定制 **
 is_free_sample 是否为免费样本 **
 test_performed_by 检验者 **
 clinic_name 诊所名称 **
-doctor_name 医生姓名
+doctor_name 医生名字
 concerned_issues 涉及问题 **
 s_quality S质量 **
 emotion_problem 情绪问题 **
@@ -28,444 +30,127 @@ medical_history 医疗历史 **
 
 
 
-SEX:</label>
-          <input
-            type="radio"
-            name="pet_sex"
-            value="M"
-            checked={formData.pet_sex === "M"}
-            onChange={handleChange}
-          />{" "}
-          Male
-          <input
-            type="radio"
-            name="pet_sex"
-            value="F"
-            checked={formData.pet_sex === "F"}
-            onChange={handleChange}
-          />{" "}
-          Female
-        </div>
+CreatePet.jsx
+SEX 性别
+Male 雄性
+Female 雌性
+Pet Name 宠物名称
+Animal Type 动物种类
+Breed 血统
+Neutered Status 绝育状态
+Owner Surname 主人姓氏
+Owner Given Name 主人名字
+Email 电子邮件
+Phone 电话
+Address 地址
+POSTAL CODE 邮政编码
+Reception Date remove
+Colection Date 收样日期
+Collection Time remove
+Specimen Type 标本类型
+Specimen Origin 标本来源
+Is Tailormade 是否为定制
+Yes 是
+No 否
+Previous ID 上个编号
+Panel CODE 面板代码
+Project Name 项目名称
+Test Performed By 检验者
+Clinic Name 诊所名称
+Doctor Name 医生名字
+Concerned Issues 涉及问题
+S Quality S质量
+Emotion Problem 情绪问题
+Project Code 项目代码
+Project Name 项目名称
+Clinic Trial Code 临床试验代码
+Clinic Trial Time Point 临床试验时间点
+Is Free Sample 是否为免费样本
+Yes 是
+No 否
+Extraction Date 提取日期
+Test Date 检验日期
+Report Ready Date 报告完成日期
+Remarks 备注
+MEDICAL HISTORY 医疗历史
 
-        <div>
-          <label htmlFor="pet_name" class="label">
-            Pet Name:
-          </label>
-          <input
-            type="text"
-            name="pet_name"
-            id="pet_name"
-            onChange={handleChange}
-          />
-        </div>
 
-        <div>
-          <label htmlFor="animal_type" class="label">
-            Animal Type:
-          </label>
-          <input
-            type="text"
-            name="animal_type"
-            id="animal_type"
-            onChange={handleChange}
-          />
-        </div>
+CustomerOrder.jsx
+Last Name 姓氏
+First Name 名字
+Chinese Name 中文名字
+Sex 性别
+ID Number 编号
+Date of birth 生日
+Email 电子邮件
+Phone 电话
+Ethnicity 民族
+Height 身高
+Weight 体重
+City 城市
+Address 地址
+Postal Code 邮政编码
+Receptio Date remove
+Collection Time remove
+Collection Date: 收样日期
+Specimen Type 标本类型
+Specimen Orgin 标本来源
+Rejected 是否已拒绝
+Panel Code 面板代码
+Panel Name 面板名称
+Test Performed By 检验者
+Clinic Name 诊所名称
+Doctor Name 医生名字
+Concerned Issue 涉及问题
+Emotional Problems 情绪问题
+Sleep Quality 睡眠质量
+Project Code 项目代码
+Project Name 项目名称
+Clinic Trial Code 临床试验代码
+Clinic Trial Time Point 临床试验时间点
+Extraction Date 提取日期
+Test Date 检验日期
+Free Sample 是否为免费样本
+Tailormade 是否为定制
+Report Ready Date 报告完成日期
+Remarks 备注
 
-        <div>
-          <label htmlFor="breed" class="label">
-            Breed:
-          </label>
-          <input type="text" name="breed" id="breed" onChange={handleChange} />
-        </div>
 
-        <div>
-          <label htmlFor="neutered_status" class="label">
-            Neutered Status:
-          </label>
-          <input
-            type="text"
-            name="neutered_status"
-            id="neutered_status"
-            onChange={handleChange}
-          />
-        </div>
-
-        <div>
-          <label htmlFor="owner_surname" class="label">
-            Owner Surname:
-          </label>
-          <input
-            type="text"
-            name="owner_surname"
-            id="owner_surname"
-            onChange={handleChange}
-          />
-        </div>
-
-        <div>
-          <label htmlFor="owner_given_name" class="label">
-            Owner Given Name:
-          </label>
-          <input
-            type="text"
-            name="owner_given_name"
-            id="owner_given_name"
-            onChange={handleChange}
-          />
-        </div>
-
-        <div>
-          <label htmlFor="email" class="label">
-            Email:
-          </label>
-          <input type="email" name="email" id="email" onChange={handleChange} />
-        </div>
-
-        <div>
-          <label htmlFor="phone" class="label">
-            Phone:
-          </label>
-          <input type="tel" name="phone" id="phone" onChange={handleChange} />
-        </div>
-
-        <div>
-          <label htmlFor="address" class="label">
-            Address:
-          </label>
-          <input
-            type="text"
-            name="address"
-            id="address"
-            onChange={handleChange}
-          />
-        </div>
-
-        <div>
-          <label class="label" htmlFor="postal_code">
-            POSTAL CODE:
-          </label>
-          <input
-            type="number"
-            name="postal_code"
-            id="postal_code"
-            onChange={handleChange}
-          />
-        </div>
-
-        <div>
-          <label class="label" htmlFor="reception_date">
-            Reception Date
-          </label>
-          <input
-            type="text"
-            name="reception_date"
-            id="reception_date"
-            onChange={handleChange}
-          />
-        </div>
-
-        <div>
-          <label class="label" htmlFor="collection_date">
-            Colection Date
-          </label>
-          <input
-            type="text"
-            name="collection_date"
-            id="collection_date"
-            onChange={handleChange}
-          />
-        </div>
-
-        <div>
-          <label class="label" htmlFor="collection_time">
-            Collection Time:
-          </label>
-          <input
-            type="text"
-            name="collection_time"
-            id="collection_time"
-            onChange={handleChange}
-          />
-        </div>
-
-        <div>
-          <label class="label" htmlFor="specimen_type">
-            Specimen Type:
-          </label>
-          <input
-            type="text"
-            name="specimen_type"
-            id="specimen_type"
-            onChange={handleChange}
-          />
-        </div>
-
-        <div>
-          <label htmlFor="specimen_origin">Specimen Origin:</label>
-          <input
-            type="text"
-            name="specimen_origin"
-            id="specimen_origin"
-            onChange={handleChange}
-          />
-        </div>
-
-        <div className="pad-div">
-          <label htmlFor="is_tailormade">Is Tailormade: </label>
-          <input
-            id="is_tailormade"
-            name="is_tailormade"
-            type="radio"
-            value="True"
-            checked={formData.is_tailormade === "True"}
-            onChange={handleChange}
-          />{" "}
-          Yes
-          <input
-            id="is_tailormade"
-            name="is_tailormade"
-            type="radio"
-            value="False"
-            checked={formData.is_tailormade === "False"}
-            onChange={handleChange}
-          />{" "}
-          No
-        </div>
-
-        <div>
-          <label class="label" htmlFor="previous_id">
-            Previous ID:
-          </label>
-          <input
-            type="text"
-            name="previous_id"
-            id="previous_id"
-            onChange={handleChange}
-          />
-        </div>
-
-        <div>
-          <label class="label" htmlFor="panel_code">
-            Panel CODE:
-          </label>
-          <input
-            type="text"
-            name="panel_code"
-            id="panel_code"
-            onChange={handleChange}
-          />
-        </div>
-
-        <div>
-          <label class="label" htmlFor="project_name">
-            Project Name:
-          </label>
-          <input
-            type="text"
-            name="project_name"
-            id="project_name"
-            onChange={handleChange}
-          />
-        </div>
-
-        <div>
-          <label class="label" htmlFor="test_performed_by">
-            Test Performed By:
-          </label>
-          <input
-            type="text"
-            name="test_perhtmlFormed_by"
-            id="test_performed_by"
-            onChange={handleChange}
-          />
-        </div>
-
-        <div>
-          <label class="label" htmlFor="clinic_name">
-            Clinic Name:
-          </label>
-          <input
-            type="text"
-            name="clinic_name"
-            id="clinic_name"
-            onChange={handleChange}
-          />
-        </div>
-
-        <div>
-          <label class="label" htmlFor="doctor_name">
-            Doctor Name:
-          </label>
-          <input
-            type="text"
-            name="doctor_name"
-            id="doctor_name"
-            onChange={handleChange}
-          />
-        </div>
-
-        <div>
-          <label class="label" htmlFor="concerned_issues">
-            Concerned Issues:
-          </label>
-          <input
-            type="text"
-            name="concerned_issues"
-            id="concerned_issues"
-            onChange={handleChange}
-          />
-        </div>
-
-        <div>
-          <label class="label" htmlFor="s_quality">
-            S Quality:
-          </label>
-          <input
-            type="text"
-            name="s_quality"
-            id="s_quality"
-            onChange={handleChange}
-          />
-        </div>
-
-        <div>
-          <label class="label" htmlFor="emotion_problem">
-            Emotion Problem:
-          </label>
-          <input
-            type="text"
-            name="emotion_problem"
-            id="emotion_problem"
-            onChange={handleChange}
-          />
-        </div>
-
-        <div>
-          <label class="label" htmlFor="project_code">
-            Project Code:
-          </label>
-          <input
-            type="text"
-            name="project_code"
-            id="project_code"
-            onChange={handleChange}
-          />
-        </div>
-
-        <div>
-          <label class="label" htmlFor="project_name">
-            Project Name:
-          </label>
-          <input
-            type="text"
-            name="project_name"
-            id="project_name"
-            onChange={handleChange}
-          />
-        </div>
-
-        <div>
-          <label class="label" htmlFor="clinic_trial_code">
-            Clinic Trial Code:
-          </label>
-          <input
-            type="text"
-            name="clinic_trial_code"
-            id="clinic_trial_code"
-            onChange={handleChange}
-          />
-        </div>
-
-        <div>
-          <label class="label" htmlFor="clinic_trial_time_point">
-            Clinic Trial Time Point:
-          </label>
-          <input
-            onChange={handleChange}
-            type="text"
-            name="clinic_trial_time_point"
-            id="clinic_trial_time_point"
-          />
-        </div>
-
-        <div className="pad-div">
-          <label htmlFor="is_free_sample">Is Free Sample:</label>
-          <input
-            id="is_free_sample"
-            name="is_free_sample"
-            type="radio"
-            value="True"
-            checked={formData.is_free_sample === "True"}
-            onChange={handleChange}
-          />{" "}
-          Yes
-          <input
-            id="is_free_sample"
-            name="is_free_sample"
-            type="radio"
-            value="False"
-            checked={formData.is_free_sample === "False"}
-            onChange={handleChange}
-          />{" "}
-          No
-        </div>
-
-        <div>
-          <label class="label" htmlFor="extraction_date">
-            Extraction Date:
-          </label>
-          <input
-            type="number"
-            name="extraction_date"
-            id="extraction_date"
-            onChange={handleChange}
-          />
-        </div>
-
-        <div>
-          <label class="label" htmlFor="test_date">
-            Test Date:
-          </label>
-          <input
-            type="text"
-            name="test_date"
-            id="test_date"
-            onChange={handleChange}
-          />
-        </div>
-
-        <div>
-          <label class="label" htmlFor="report_ready_date">
-            Report Ready Date:
-          </label>
-          <input
-            type="text"
-            name="report_ready_date"
-            id="report_ready_date"
-            onChange={handleChange}
-          />
-        </div>
-
-        <div>
-          <label class="label" htmlFor="remarks">
-            Remarks:
-          </label>
-          <input
-            type="text"
-            name="remarks"
-            id="remarks"
-            onChange={handleChange}
-          />
-        </div>
-
-        <div>
-          <label class="label" htmlFor="medical_history">
-            MEDICAL HISTORY:
-          </label>
-          <input
-            type="text"
-            onChange={handleChange}
-            name="medical_history"
-            id="medical_history"
-          />
-        </div>
+PetOrder.jsx
+Pet Name 宠物名称
+Pet Sex 宠物性别
+Date of birth 生日
+Animal Type 动物种类
+Breed 血统
+Neutere Status 绝育状态
+Email 电子邮件
+Phone 电话
+Owner Surname 主人姓氏
+Owner Given Name 主人名字
+Address 地址
+Postal Code 邮政编码
+Receptio Date remove
+Collection Time remove
+Collection Date 收样日期
+Specimen Type 标本类型
+Specimen Orgin 标本来源
+Rejected 是否已拒绝
+Previous ID 上个编号
+Panel Code 面板代码
+Panel Name 面板名称
+Test Performed By 检验者
+Clinic Name 诊所名称
+Doctor Name 医生名字
+Concerned Issue 涉及问题
+Emotional Problems 情绪问题
+Sleep Quality 睡眠质量
+Project Code 项目代码
+Project Name 项目名称
+Clinic Trial Code 临床试验代码
+Clinic Trial Time Point 临床试验时间点
+Extraction Date 提取日期
+Test Date 检验日期
+Free Sample 是否为免费样本
+Tailormade 是否为定制
+Report Ready Date 报告完成日期
+Remarks 备注

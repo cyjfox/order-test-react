@@ -290,7 +290,7 @@ const CreateCustomer = () => {
 
         <div>
           <label className="label" htmlFor="doctor_name">
-            医生姓名:
+            医生名字:
           </label>
           <input
             onChange={handleChange}
