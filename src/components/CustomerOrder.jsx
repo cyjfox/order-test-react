@@ -1,8 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Cookies from 'universal-cookie';
+
+
+const cookie = new Cookies()
+
 
 function CustomerOrder(props) {
-  const [show, setShow] = useState(false)
 
+  
+  const [show, setShow] = useState(false)
+  const navigate = useNavigate()
+
+  // destructuring props object
   const details = props.details
 
   const subStyle={
@@ -34,7 +44,7 @@ function CustomerOrder(props) {
     display : "flex",
     flexDirection : "row",
     width : "100%",
-    backgroundColor : "lightcyan",
+    backgroundColor : details.status === 'CANCELLED'? "lightpink" : "lightcyan",
     borderRadius :"10px",
     border : "1px solid black",
     padding : "5px",
@@ -55,6 +65,41 @@ function CustomerOrder(props) {
     marginTop : "5px"
   }
 
+    const rightContainer = {
+    width : "30%",
+    display: "flex",
+    alignItems : "center",
+    justifyContent :"center"
+  }
+
+  const expandCollapseButton = {
+    width : "fit-content",
+    backgroundColor : "blue",
+    margin : "0 10px",
+    height : "fit-content",
+  }
+
+  const editButton = {
+    width : "fit-content",
+    backgroundColor : "green",
+    height : "fit-content",
+    margin : "0 10px"
+  }
+
+  const cancelButton = {
+    width : "fit-content",
+    backgroundColor : "red",
+    height : "fit-content",
+    margin : "0 10px"
+  }
+
+  
+  function handleUpdate(){
+    console.log('clicked')
+    cookie.set('customer-info', details)
+    navigate('/update-customer')
+  }
+  
   return (
     <div style={motherContainer}>
 
@@ -88,9 +133,17 @@ function CustomerOrder(props) {
 
         </div>
 
-        <div className='right-container' style={{ width: "20%", display: "flex", alignItems:"center", justifyContent: "right"}}>
-          <button onClick={()=>{setShow(!show) }} style={{width: "fit-content", backgroundColor: "blue", margin:"0 10px", height:"fit-content"}}>{show?"Collapse" : "Expand"}</button>
-          <button style={{width:"fit-content", backgroundColor: "green", margin:"0 10px", height:"fit-content"}}>Edit</button>
+        <div style={rightContainer}>
+          <button onClick={()=>{setShow(!show) }} style={expandCollapseButton}>{show?"Collapse" : "Expand"}
+          </button>
+
+          <button onClick={()=>handleUpdate()} style={editButton}>Edit</button>
+          
+          {
+            details.status === 'PENDING' && 
+              <button style={cancelButton} onClick={()=> props.handleCancel(details.order_id)}>Cancel</button>
+          }
+
         </div>
       </div>
 
@@ -149,7 +202,8 @@ function CustomerOrder(props) {
           <div style={subStyle}>
             <span style={spanStyle} > <span style={subSpan}>涉及问题: </span> {details.concerned_issues} </span>
             <span style={spanStyle} > <span style={subSpan}>情绪问题: </span> {details.emotiona_problem} </span>
-            <span style={spanStyle} > <span style={subSpan}>睡眠质量: </span> {details.S_quality} </span>
+            <span style={spanStyle} > <span style={subSpan}>睡眠质量: </span> {details.s_quality} </span>
+
           </div>
 
           <div style={subStyle}>
@@ -168,10 +222,12 @@ function CustomerOrder(props) {
           </div>
 
           <div style={subStyle}>
+
             <span style={spanStyle} > <span style={subSpan}>是否为免费样本: </span> {details.is_free_sample} </span>
             <span style={spanStyle} > <span style={subSpan}>是否为定制: </span> {details.is_tailormade}</span>
             <span style={spanStyle} > <span style={subSpan}>报告完成日期: </span> {details.report_ready_date}</span>
             <span style={spanStyle} > <span style={subSpan}>备注:</span> {details.remarks} </span>
+            <span style={spanStyle} > <span style={subSpan}>Medical History:</span> {details.medical_history} </span>
           </div>
         </div>
       }

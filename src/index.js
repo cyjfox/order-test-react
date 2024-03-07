@@ -11,6 +11,8 @@ import PendingCustomer from './components/PendingCustomer';
 import PendingPet from './components/PendingPet';
 import { AllVendorPetOrders } from './components/AllVendorPetOrders';
 import AllVendorCustomerOrders from './components/AllVendorCustomerOrders';
+import UpdateCustomer from './components/UpdateCustomer';
+import UpdatePet from './components/UpdatePet';
 
 const router = createBrowserRouter([
   {
@@ -44,6 +46,14 @@ const router = createBrowserRouter([
   {
     path : '/user/pet/history',
     element : <AllVendorPetOrders />
+  },
+  {
+    path : "/update-customer",
+    element : <UpdateCustomer />
+  },
+  {
+    path : "/update-pet",
+    element : <UpdatePet />
   }
 ]);
 

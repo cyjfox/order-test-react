@@ -5,12 +5,24 @@ import CustomerTopNav from './CustomerTopNav'
 
 const AllVendorCustomerOrders = () => {
   const [data, setData] = useState([])
+  const [cancelled, setCancelled] = useState(true)
+
 
   useEffect(()=>{
     fetch('http://localhost:5050/vendor/customer')
       .then(res => res.json())
       .then(fetched => setData(fetched))
-  },[])
+  },[cancelled])
+
+  function handleCancel(order_id){
+    fetch(`http://localhost:5050/cancel-customer/${order_id}`)
+      .then(res => res.json())
+      .then(data => {
+        setCancelled(!cancelled)
+        console.log(data)
+      })
+  }
+
 
   return (
 
@@ -35,7 +47,7 @@ const AllVendorCustomerOrders = () => {
 
       {
         data.map((item)=>{
-          return <CustomerOrder details={item} />
+          return <CustomerOrder handleCancel={handleCancel} details={item} />
         })
       }
     </div>
