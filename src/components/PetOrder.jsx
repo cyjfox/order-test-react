@@ -100,83 +100,83 @@ export const PetOrder = (props) => {
       {show &&
         <div style={bottomContainer}>
           <div style={subStyle}> 
-            <span style={spanStyle}>  <span style={subSpan}>Pet Name: </span> {details.pet_name} </span>
-            <span style={spanStyle}>  <span style={subSpan}>Pet Sex: </span> {details.pet_sex}</span>
-            <span style={spanStyle}>  <span style={subSpan}>Date of birth: </span> {details.date_of_birth}</span>
+            <span style={spanStyle}>  <span style={subSpan}>宠物名称: </span> {details.pet_name} </span>
+            <span style={spanStyle}>  <span style={subSpan}>宠物性别: </span> {details.pet_sex}</span>
+            <span style={spanStyle}>  <span style={subSpan}>生日: </span> {details.date_of_birth}</span>
           </div>
 
           <div style={subStyle}>
-            <span style={spanStyle}>  <span style={subSpan}>Animal Type: </span> {details.animal_type} </span>
-            <span style={spanStyle}>  <span style={subSpan}>Breed: </span> {details.breed}</span>
-            <span style={spanStyle} > <span style={subSpan}>Neutere Status: </span> {details.neutere_status}</span>
+            <span style={spanStyle}>  <span style={subSpan}>动物种类: </span> {details.animal_type} </span>
+            <span style={spanStyle}>  <span style={subSpan}>血统: </span> {details.breed}</span>
+            <span style={spanStyle} > <span style={subSpan}>绝育状态: </span> {details.neutere_status}</span>
           </div>
 
           <div style={subStyle}>
-            <span style={spanStyle} > <span style={subSpan}>Email: </span> {details.email}</span>
-            <span style={spanStyle} > <span style={subSpan}>Phone: </span> {details.phone}</span>
+            <span style={spanStyle} > <span style={subSpan}>电子邮件: </span> {details.email}</span>
+            <span style={spanStyle} > <span style={subSpan}>电话: </span> {details.phone}</span>
           </div>
 
           <div style={subStyle}>
-            <span style={spanStyle} > <span style={subSpan}>Owner Surname: </span>{details.owner_surname}</span>
-            <span style={spanStyle} > <span style={subSpan}>Owner Given Name: </span>{details.owner_given_name}</span>
+            <span style={spanStyle} > <span style={subSpan}>主人姓氏: </span>{details.owner_surname}</span>
+            <span style={spanStyle} > <span style={subSpan}>主人名字: </span>{details.owner_given_name}</span>
           </div>
 
           <div style={subStyle}>
-            <span style={spanStyle} > <span style={subSpan}>Address: </span> {details.address}</span>
-            <span style={spanStyle} > <span style={subSpan}>Postal Code: </span> {details.postal_address}</span>
+            <span style={spanStyle} > <span style={subSpan}>地址: </span> {details.address}</span>
+            <span style={spanStyle} > <span style={subSpan}>邮政编码: </span> {details.postal_address}</span>
           </div>
 
           <div style={subStyle}>
-            <span style={spanStyle} > <span style={subSpan}>Receptio Date: </span> {details.reception_date}</span>
-            <span style={spanStyle} > <span style={subSpan}>Collection Time: </span> {details.collection_time}</span>
-            <span style={spanStyle} > <span style={subSpan}>Collection Date: </span> {details.collection_date}</span>
+            <span style={spanStyle} > <span style={subSpan}>Receptio Date:(To be removed) </span> {details.reception_date}</span>
+            <span style={spanStyle} > <span style={subSpan}>Collection Time:(To be removed) </span> {details.collection_time}</span>
+            <span style={spanStyle} > <span style={subSpan}>收样日期: </span> {details.collection_date}</span>
           </div>
 
 
           <div style={subStyle}>
-            <span style={spanStyle} > <span style={subSpan}>Specimen Type: </span>  {details.specimen_type}  </span>
-            <span style={spanStyle} > <span style={subSpan}>Specimen Orgin: </span> {details.specimen_origin} </span>
-            <span style={spanStyle} > <span style={subSpan}>Rejected: </span> {details.is_specimen_rejected} </span>
-            <span style={spanStyle} > <span style={subSpan}>Previous ID: </span> {details.previous_id} </span>
+            <span style={spanStyle} > <span style={subSpan}>标本类型: </span>  {details.specimen_type}  </span>
+            <span style={spanStyle} > <span style={subSpan}>标本来源: </span> {details.specimen_origin} </span>
+            <span style={spanStyle} > <span style={subSpan}>是否已拒绝: </span> {details.is_specimen_rejected} </span>
+            <span style={spanStyle} > <span style={subSpan}>上个编号: </span> {details.previous_id} </span>
           </div>
 
           <div style={subStyle}>
-            <span style={spanStyle} > <span style={subSpan}>Panel Code: </span>  {details.panel_code} </span>
-            <span style={spanStyle} > <span style={subSpan}>Panel Name: </span> {details.panel_name} </span>
+            <span style={spanStyle} > <span style={subSpan}>面板代码: </span>  {details.panel_code} </span>
+            <span style={spanStyle} > <span style={subSpan}>面板名称: </span> {details.panel_name} </span>
           </div>
 
           <div style={subStyle}>
-            <span style={spanStyle} > <span style={subSpan}>Test Performed By: </span> {details.test_performed_by} </span>
-            <span style={spanStyle} > <span style={subSpan}>Clinic Name: </span> {details.clinic_name} </span>
-            <span style={spanStyle} > <span style={subSpan}>Doctor Name: </span> {details.doctor_name} </span>
+            <span style={spanStyle} > <span style={subSpan}>检验者: </span> {details.test_performed_by} </span>
+            <span style={spanStyle} > <span style={subSpan}>诊所名称: </span> {details.clinic_name} </span>
+            <span style={spanStyle} > <span style={subSpan}>医生名字: </span> {details.doctor_name} </span>
           </div>
 
           <div style={subStyle}>
-            <span style={spanStyle} > <span style={subSpan}>Concerned Issue: </span> {details.concerned_issues} </span>
-            <span style={spanStyle} > <span style={subSpan}>Emotional Problems: </span> {details.emotiona_problem} </span>
-            <span style={spanStyle} > <span style={subSpan}>Sleep Quality: </span> {details.S_quality} </span>
+            <span style={spanStyle} > <span style={subSpan}>涉及问题: </span> {details.concerned_issues} </span>
+            <span style={spanStyle} > <span style={subSpan}>情绪问题: </span> {details.emotiona_problem} </span>
+            <span style={spanStyle} > <span style={subSpan}>睡眠质量: </span> {details.S_quality} </span>
           </div>
 
           <div style={subStyle}>
-            <span style={spanStyle} > <span style={subSpan}>Project Code: </span> {details.project_code } </span>
-            <span style={spanStyle} > <span style={subSpan}>Project Name: </span> {details.project_name} </span>
+            <span style={spanStyle} > <span style={subSpan}>项目代码: </span> {details.project_code } </span>
+            <span style={spanStyle} > <span style={subSpan}>项目名称: </span> {details.project_name} </span>
           </div>
 
           <div style={subStyle}>
-            <span style={spanStyle} > <span style={subSpan}>Clinic Trial Code: </span> {details.clinic_trial_code} </span>
-            <span style={spanStyle} > <span style={subSpan}>Clinic Trial Time Point: </span> {details.clinic_trial_time_point}</span>
-            <span style={spanStyle} > <span style={subSpan}>Extraction Date: </span> {details.extraction_date}</span>
+            <span style={spanStyle} > <span style={subSpan}>临床试验代码: </span> {details.clinic_trial_code} </span>
+            <span style={spanStyle} > <span style={subSpan}>临床试验时间点: </span> {details.clinic_trial_time_point}</span>
+            <span style={spanStyle} > <span style={subSpan}>提取日期: </span> {details.extraction_date}</span>
           </div>
 
           <div style={subStyle}>
-            <span style={spanStyle} > <span style={subSpan}>Test Date: </span> {details.test_date}</span>
+            <span style={spanStyle} > <span style={subSpan}>检验日期: </span> {details.test_date}</span>
           </div>
 
           <div style={subStyle}>
-            <span style={spanStyle} > <span style={subSpan}>Free Sample: </span> {details.is_free_sample} </span>
-            <span style={spanStyle} > <span style={subSpan}>Tailormade: </span> {details.is_tailormade}</span>
-            <span style={spanStyle} > <span style={subSpan}>Report Ready Date: </span> {details.report_ready_date}</span>
-            <span style={spanStyle} > <span style={subSpan}>Remarks:</span> {details.remarks} </span>
+            <span style={spanStyle} > <span style={subSpan}>是否为免费样本: </span> {details.is_free_sample} </span>
+            <span style={spanStyle} > <span style={subSpan}>是否为定制: </span> {details.is_tailormade}</span>
+            <span style={spanStyle} > <span style={subSpan}>报告完成日期: </span> {details.report_ready_date}</span>
+            <span style={spanStyle} > <span style={subSpan}>备注:</span> {details.remarks} </span>
           </div>
         </div>
       }
