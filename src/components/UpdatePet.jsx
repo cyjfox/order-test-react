@@ -1,63 +1,19 @@
-import { React, useState } from "react";
+import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
 import "../styles/create-order.css";
 import CustomerTopNav from "./CustomerTopNav";
-import Cookies from "universal-cookie";
+import Cookies from 'universal-cookie';
 
 
 const cookie = new Cookies()
+const UpdatePet = (props) => {
 
-const CreateCustomer = () => {
-  const initialState = {
-    last_name: "",
-    first_name: "",
-    customer_id: "",
-    order_id: "",
-    lab_id: "",
-    Chinese_name: "",
-    id_number: "",
-    passport_number: "",
-    sex: "M",
-    date_of_birth: "",
-    email: "",
-    phone: "",
-    ethnicity: "",
-    height: "",
-    weight: "",
-    city: "",
-    country: "",
-    postal_address: "",
-    postal_code: "",
-    reception_date: "",
-    collection_date: "",
-    collection_time: "",
-    specimen_type: "",
-    specimen_origin: "",
-    is_specimen_rejected: "False",
-    previous_id: "",
-    panel_code: "",
-    project_name: "",
-    is_tailormade: "True",
-    test_performed_by: "",
-    clinic_name: "",
-    doctor_name: "",
-    concerned_issues: "",
-    s_quality: "",
-    emotion_problem: "",
-    project_code: "",
-    clinic_trial_code: "",
-    clinic_trial_time_point: "",
-    is_free_sample: "True",
-    extraction_date: "",
-    test_date: "",
-    report_ready_date: "",
-    remarks: "",
-    status:"PENDING",
-    user:"YEUNG PO",
-    medical_history: "",
-  };
+  const [formData, setFormData] = useState({})
 
-  const [formData, setFormData] = useState(initialState);
+  useEffect(()=>{
+    const info = cookie.get('pet-info')
+    setFormData(info)
+  },[])
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -67,66 +23,27 @@ const CreateCustomer = () => {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    fetch("http://localhost:5050/create-customer", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json", // Set the content type header
-      },
-      body: JSON.stringify(formData), // Convert the body to JSON string
+  const handleUpdate = ()=> {
+    console.log(formData)
+    fetch(`http://localhost:5050/update-pet/${formData.order_id}`,{
+      method : "PUT",
+      body : JSON.stringify(formData),
+      headers : {
+        'Content-Type' : 'application/json'
+      }
     })
-      .then((res) => res.text())
-      .then((data) => alert(data));
-  };
+      .then(res => res.text())
+      .then(data =>{
+        alert(data)
+      })
+  }
 
 
   return (
     <div className="form-container">
       <CustomerTopNav />
-      <nav className="nav">
-        <Link className="nav-link" to={"/create-customer"}>
-          Human Specimen
-        </Link>
-        <Link className="nav-link" to={"/create-pet"}>
-          Pet Specimen
-        </Link>
-      </nav>
-      <h2>Customer Specimen</h2>
-      <form onSubmit={handleSubmit} className="page-main-table">
-        {/* Input fields and labels */}
-        <div>
-          <label htmlFor="last_name">姓氏:</label>
-          <input
-            id="last_name"
-            name="last_name"
-            type="text"
-            value={formData.last_name}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="first_name">名字:</label>
-          <input
-            id="first_name"
-            name="first_name"
-            type="text"
-            value={formData.first_name}
-            onChange={handleChange}
-          />
-        </div>
-
-        <div>
-          <label className="label" htmlFor="customer_id">
-            客户编号:
-          </label>
-          <input
-            onChange={handleChange}
-            type="number"
-            name="customer_id"
-            id="customer_id"
-          />
-        </div>
+      <h2>Update Customer Order Info</h2>
+      <form className="page-main-table">
 
         <div>
           <label className="label" htmlFor="order_id">
@@ -135,6 +52,7 @@ const CreateCustomer = () => {
           <input
             onChange={handleChange}
             type="number"
+            value = {formData.order_id}
             name="order_id"
             id="order_id"
           />
@@ -149,76 +67,159 @@ const CreateCustomer = () => {
             type="number"
             name="lab_id"
             id="lab_id"
+            value = {formData.lab_id}
           />
         </div>
 
-        <div>
-          <label className="label" htmlFor="Chinese_name">
-            中文名字:
-          </label>
-          <input
-            onChange={handleChange}
-            type="text"
-            name="Chinese_name"
-            id="Chinese_name"
-          />
-        </div>
-
-        <div>
-          <label className="label" htmlFor="id_number">
-            编号:
-          </label>
-          <input
-            onChange={handleChange}
-            type="text"
-            name="id_number"
-            id="id_number"
-          />
-        </div>
-
-        <div>
-          <label className="label" htmlFor="passport_number">
-            证件号码:
-          </label>
-          <input
-            onChange={handleChange}
-            type="text"
-            name="passport_number"
-            id="passport_number"
-          />
-        </div>
 
         <div className="pad-div">
           <label>性别:</label>
           <input
             type="radio"
-            name="sex"
+            name="pet_sex"
             value="M"
-            checked={formData.sex === "M"}
+            checked={formData.pet_sex === "M"}
             onChange={handleChange}
           />{" "}
-          男
+          雄性
           <input
             type="radio"
-            name="sex"
+            name="pet_sex"
             value="F"
-            checked={formData.sex === "F"}
+            checked={formData.pet_sex === "F"}
             onChange={handleChange}
           />{" "}
-          女
+          雌性
         </div>
 
         <div>
-          <label className="label" htmlFor="date_of_birth">
-            生日:
+          <label htmlFor="pet_name" class="label">
+            宠物名称:
           </label>
           <input
+            type="text"
+            name="pet_name"
+            id="pet_name"
+            value={formData.pet_name}
             onChange={handleChange}
-            type="date"
-            name="date_of_birth"
-            id="date_of_birth"
           />
         </div>
+
+        <div>
+          <label htmlFor="animal_type" class="label">
+            动物种类:
+          </label>
+          <input
+            type="text"
+            name="animal_type"
+            id="animal_type"
+            value={formData.animal_type}
+            onChange={handleChange}
+          />
+        </div>
+
+        <div>
+          <label htmlFor="breed" class="label">
+            Breed:
+          </label>
+          <input 
+            type="text" 
+            name="breed" 
+            id="breed"
+            value={formData.breed}
+            onChange={handleChange} />
+        </div>
+
+        <div>
+          <label htmlFor="neutered_status" class="label">
+            Neutered Status:
+          </label>
+          <input
+            type="text"
+            name="neutered_status"
+            id="neutered_status"
+            value={formData.neutered_status}
+            onChange={handleChange}
+          />
+        </div>
+
+        <div>
+          <label htmlFor="owner_surname" class="label">
+            主人姓氏:
+          </label>
+          <input
+            type="text"
+            name="owner_surname"
+            id="owner_surname"
+            value={formData.owner_surname}
+            onChange={handleChange}
+          />
+        </div>
+
+        <div>
+          <label htmlFor="owner_given_name" class="label">
+            主人名字:
+          </label>
+          <input
+            type="text"
+            name="owner_given_name"
+            id="owner_given_name"
+            value={formData.owner_given_name}
+            onChange={handleChange}
+          />
+        </div>
+
+        <div>
+          <label htmlFor="email" class="label">
+            电子邮件:
+          </label>
+          <input 
+            type="email" 
+            name="email" 
+            id="email"
+            value={formData.email}
+            onChange={handleChange} />
+        </div>
+
+        <div>
+          <label htmlFor="phone" class="label">
+            电话:
+          </label>
+          <input 
+            type="tel" 
+            name="phone" 
+            id="phone"
+            value={formData.phone}
+            onChange={handleChange} />
+        </div>
+
+        <div>
+          <label htmlFor="address" class="label">
+            地址:
+          </label>
+          <input
+            type="text"
+            name="address"
+            id="address"
+            value={formData.address}
+            onChange={handleChange}
+          />
+        </div>
+
+        <div>
+          <label class="label" htmlFor="postal_code">
+            邮政编码:
+          </label>
+          <input
+            type="number"
+            name="postal_code"
+            id="postal_code"
+            value={formData.postal_code}
+            onChange={handleChange}
+          />
+        </div>
+
+
 
         <div className="pad-div">
           <label htmlFor="is_tailormade">是否为定制: </label>
@@ -264,6 +265,68 @@ const CreateCustomer = () => {
           否
         </div>
 
+       <div className="pad-div">
+          <label htmlFor="is_specimen_rejected">Is Specimen Rejected:</label>
+          <input
+            id="is_specimen_rejected"
+            name="is_specimen_rejected"
+            type="radio"
+            value="True"
+            checked={formData.is_specimen_rejected === "True"}
+            onChange={handleChange}
+          />{" "}
+          是
+          <input
+            id="is_specimen_rejected"
+            name="is_specimen_rejected"
+            type="radio"
+            value="False"
+            checked={formData.is_specimen_rejected === "False"}
+            onChange={handleChange}
+          />{" "}
+          否
+        </div>
+
+
+      <div>
+          <label class="label" htmlFor="reception_date">
+            接受日期
+          </label>
+          <input
+            type="text"
+            name="reception_date"
+            id="reception_date"
+            value={formData.reception_date}
+            onChange={handleChange}
+          />
+        </div>
+
+        <div>
+          <label class="label" htmlFor="collection_date">
+            收集日期
+          </label>
+          <input
+            type="text"
+            name="collection_date"
+            id="collection_date"
+            value={formData.collection_date}
+            onChange={handleChange}
+          />
+        </div>
+
+        <div>
+          <label class="label" htmlFor="collection_time">
+            收集时间:
+          </label>
+          <input
+            type="text"
+            name="collection_time"
+            id="collection_time"
+            value={formData.collection_time}
+            onChange={handleChange}
+          />
+        </div>
+
         <div>
           <label className="label" htmlFor="test_performed_by">
             检验者:
@@ -271,6 +334,7 @@ const CreateCustomer = () => {
           <input
             onChange={handleChange}
             type="text"
+            value = {formData.test_performed_by}
             name="test_performed_by"
             id="test_performed_by"
           />
@@ -283,6 +347,7 @@ const CreateCustomer = () => {
           <input
             onChange={handleChange}
             type="text"
+            value = {formData.clinic_name}
             name="clinic_name"
             id="clinic_name"
           />
@@ -296,6 +361,7 @@ const CreateCustomer = () => {
             onChange={handleChange}
             type="text"
             name="doctor_name"
+            value={formData.doctor_name}
             id="doctor_name"
           />
         </div>
@@ -307,6 +373,7 @@ const CreateCustomer = () => {
           <input
             onChange={handleChange}
             type="text"
+            value={formData.concerned_issues}
             name="concerned_issues"
             id="concerned_issues"
           />
@@ -321,6 +388,7 @@ const CreateCustomer = () => {
             type="text"
             name="s_quality"
             id="s_quality"
+            value = {formData.s_quality}
           />
         </div>
 
@@ -331,6 +399,7 @@ const CreateCustomer = () => {
           <input
             onChange={handleChange}
             type="text"
+            value={formData.emotion_problem}
             name="emotion_problem"
             id="emotion_problem"
           />
@@ -343,6 +412,7 @@ const CreateCustomer = () => {
           <input
             onChange={handleChange}
             type="text"
+            value={formData.project_code}
             name="project_code"
             id="project_code"
           />
@@ -355,6 +425,7 @@ const CreateCustomer = () => {
           <input
             onChange={handleChange}
             type="text"
+            value={formData.project_name}
             name="project_name"
             id="project_name"
           />
@@ -367,6 +438,7 @@ const CreateCustomer = () => {
           <input
             onChange={handleChange}
             type="text"
+            value={formData.clinic_trial_code}
             name="clinic_trial_code"
             id="clinic_trial_code"
           />
@@ -379,6 +451,7 @@ const CreateCustomer = () => {
           <input
             onChange={handleChange}
             type="text"
+            value={formData.clinic_trial_time_point}
             name="clinic_trial_time_point"
             id="clinic_trial_time_point"
           />
@@ -391,6 +464,7 @@ const CreateCustomer = () => {
           <input
             onChange={handleChange}
             type="text"
+            value={formData.extraction_date}
             name="extraction_date"
             id="extraction_date"
           />
@@ -403,6 +477,7 @@ const CreateCustomer = () => {
           <input
             onChange={handleChange}
             type="text"
+            value={formData.test_date}
             name="test_date"
             id="test_date"
           />
@@ -415,6 +490,7 @@ const CreateCustomer = () => {
           <input
             onChange={handleChange}
             type="text"
+            value={formData.report_ready_date}
             name="report_ready_date"
             id="report_ready_date"
           />
@@ -427,6 +503,7 @@ const CreateCustomer = () => {
           <input
             onChange={handleChange}
             type="text"
+            value={formData.remarks}
             name="remarks"
             id="remarks"
           />
@@ -442,13 +519,14 @@ const CreateCustomer = () => {
           />
         </div>
         <div>
-          <button type="button" onClick={handleSubmit}>
+          <button type="button" onClick={handleUpdate}>
             提交
           </button>
         </div>
       </form>
     </div>
-  );
-};
 
-export default CreateCustomer;
+  )
+}
+
+export default UpdatePet;

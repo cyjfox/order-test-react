@@ -16,6 +16,8 @@ const CreatePet = () => {
     email: "",
     phone: "",
     address: "",
+    order_id : "",
+    lab_id: "",
     postal_code: "",
     reception_date: "",
     collection_date: "",
@@ -36,11 +38,13 @@ const CreatePet = () => {
     clinic_trial_code: "",
     clinic_trial_time_point: "",
     is_free_sample: "False",
-    is_rejected: "False",
+    is_specimen_rejected: "False",
     extraction_date: "",
     test_date: "",
     report_ready_date: "",
     remarks: "",
+    user: "YEUNG PO",
+    status: "PENDING",
     medical_history: "",
   };
 
@@ -146,6 +150,30 @@ const CreatePet = () => {
         </div>
 
         <div>
+          <label className="label" htmlFor="order_id">
+            订单编号:
+          </label>
+          <input
+            onChange={handleChange}
+            type="number"
+            name="order_id"
+            id="order_id"
+          />
+        </div>
+
+        <div>
+          <label className="label" htmlFor="lab_id">
+            实验室编号:
+          </label>
+          <input
+            onChange={handleChange}
+            type="number"
+            name="lab_id"
+            id="lab_id"
+          />
+        </div>
+
+        <div>
           <label htmlFor="owner_surname" class="label">
             主人姓氏:
           </label>
@@ -173,14 +201,22 @@ const CreatePet = () => {
           <label htmlFor="email" class="label">
             电子邮件:
           </label>
-          <input type="email" name="email" id="email" onChange={handleChange} />
+          <input 
+            type="email" 
+            name="email" 
+            id="email" 
+            onChange={handleChange} />
         </div>
 
         <div>
           <label htmlFor="phone" class="label">
             电话:
           </label>
-          <input type="tel" name="phone" id="phone" onChange={handleChange} />
+          <input 
+            type="tel" 
+            name="phone" 
+            id="phone" 
+            onChange={handleChange} />
         </div>
 
         <div>
@@ -525,7 +561,7 @@ const CreatePet = () => {
           />
         </div>
 
-        <button type="submit" onClick={handleSubmit}>
+        <button type="button" onClick={handleSubmit}>
           提交
         </button>
       </form>

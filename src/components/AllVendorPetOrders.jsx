@@ -5,13 +5,24 @@ import { PetOrder } from './PetOrder'
 
 export const AllVendorPetOrders = () => {
   const [data, setData] = useState([])
+  const [cancelled, setCancelled] = useState(true)
 
   useEffect(()=>{
     const username = encodeURIComponent('YUENG PO')
-    fetch(`http://localhost:5050/order-customer/?user=${username}`)
+    fetch(`http://localhost:5050/vendor/pet`)
       .then(res => res.json())
       .then(fetched => setData(fetched))
-  },[])
+  },[cancelled])
+
+  function handleCancel(order_id){
+    fetch(`http://localhost:5050/cancel-pet/${order_id}`)
+      .then(res => res.json())
+      .then(data => {
+        setCancelled(!cancelled)
+        console.log(data)
+      })
+
+  } 
 
   return (
 
@@ -34,7 +45,7 @@ export const AllVendorPetOrders = () => {
 
       {
         data.map((item)=>{
-          return <PetOrder details={item} />
+          return <PetOrder handleCancel={handleCancel} details={item} />
         })
       }
     </div>
