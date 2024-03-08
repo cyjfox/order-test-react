@@ -32,16 +32,16 @@ export const AllVendorPetOrders = () => {
 
       <nav className="nav">
         <Link className="nav-link" to={"/user/customer/history"}>
-          Customer Orders
+          客户订单
         </Link>
         <Link className="nav-link" to={"/user/pet/history"}>
-          Pet Orders
+          宠物订单
         </Link>
 
         <input style={{width: "50%"}} type="text" placeholder="Search.."/>
       </nav>
 
-      <h2> Pet Order History</h2>
+      <h2> 宠物订单历史</h2>
 
       {
         data.map((item)=>{

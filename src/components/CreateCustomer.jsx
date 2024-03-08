@@ -96,13 +96,13 @@ const CreateCustomer = () => {
       <CustomerTopNav />
       <nav className="nav">
         <Link className="nav-link" to={"/create-customer"}>
-          Human Specimen
+          人类标本
         </Link>
         <Link className="nav-link" to={"/create-pet"}>
-          Pet Specimen
+          宠物标本
         </Link>
       </nav>
-      <h2>Customer Specimen</h2>
+      <h2>客户标本</h2>
       <form onSubmit={handleSubmit} className="page-main-table">
         {/* Input fields and labels */}
         <div>

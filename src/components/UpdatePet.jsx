@@ -45,7 +45,7 @@ const UpdatePet = (props) => {
   return (
     <div className="form-container">
       <CustomerTopNav />
-      <h2>Update Pet Order Info</h2>
+      <h2>更新宠物订单信息</h2>
       <form className="page-main-table">
 
         <div>
@@ -123,7 +123,7 @@ const UpdatePet = (props) => {
 
         <div>
           <label htmlFor="breed" class="label">
-            Breed:
+            血统:
           </label>
           <input 
             type="text" 
@@ -135,7 +135,7 @@ const UpdatePet = (props) => {
 
         <div>
           <label htmlFor="neutered_status" class="label">
-            Neutered Status:
+            绝育状态:
           </label>
           <input
             type="text"
@@ -269,7 +269,7 @@ const UpdatePet = (props) => {
         </div>
 
        <div className="pad-div">
-          <label htmlFor="is_specimen_rejected">Is Specimen Rejected:</label>
+          <label htmlFor="is_specimen_rejected">是否已拒绝:</label>
           <input
             id="is_specimen_rejected"
             name="is_specimen_rejected"

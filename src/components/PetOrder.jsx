@@ -216,7 +216,7 @@ export const PetOrder = (props) => {
             <span style={spanStyle} > <span style={subSpan}>是否为定制: </span> {details.is_tailormade}</span>
             <span style={spanStyle} > <span style={subSpan}>报告完成日期: </span> {details.report_ready_date}</span>
             <span style={spanStyle} > <span style={subSpan}>备注:</span> {details.remarks} </span>
-            <span style={spanStyle} > <span style={subSpan}>Medical History:</span> {details.medical_history} </span>
+            <span style={spanStyle} > <span style={subSpan}>医疗历史:</span> {details.medical_history} </span>
 
           </div>
         </div>

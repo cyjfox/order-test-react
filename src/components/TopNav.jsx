@@ -5,10 +5,10 @@ const TopNav = () => {
   return (
     <nav className='top-nav'>
       <Link className="top-nav-link" to={"/all-customers"}>
-        All Orders
+        所有订单
       </Link>
       <Link className="top-nav-link" to={"/pending-customer"}>
-        Pending Orders
+        挂起的订单
       </Link>
     </nav>
   )
