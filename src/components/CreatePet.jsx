@@ -84,14 +84,14 @@ const CreatePet = () => {
       <CustomerTopNav />
       <nav className="nav">
         <Link className="nav-link" to={"/create-customer"}>
-          Human Specimen
+          人类标本
         </Link>
         <Link className="nav-link" to={"/create-pet"}>
-          Pet Specimen
+          宠物标本
         </Link>
       </nav>
 
-      <h2>Pet Specimen Order</h2>
+      <h2>宠物标本</h2>
       <form class="page-main-table">
         <div className="pad-div">
           <label>性别:</label>

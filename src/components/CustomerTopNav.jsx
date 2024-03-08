@@ -5,10 +5,10 @@ export const CustomerTopNav = () => {
   return (
       <nav className='top-nav'>
         <Link className="top-nav-link" to={"/create-customer"}>
-          Create Order
+          创建订单
         </Link>
         <Link className="top-nav-link" to={"/user/customer/history"}>
-          Order History
+          订单历史
         </Link>
       </nav>
   )

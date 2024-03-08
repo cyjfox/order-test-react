@@ -21,16 +21,16 @@ function PendingPet() {
 
       <nav className="nav">
         <Link className="nav-link" to={"/pending-customer"}>
-          Pending Customer Orders
+          挂起客户订单
         </Link>
         <Link className="nav-link" to={"/pending-pet"}>
-          Pending Pet Orders
+          挂起宠物订单
         </Link>
 
         <input style={{width: "50%"}} type="text" placeholder="Search.."/>
       </nav>
 
-      <h2>All Pending Pet Specimen Orders</h2>
+      <h2>所有挂起的宠物标本订单</h2>
 
       {
         data.map((item)=>{

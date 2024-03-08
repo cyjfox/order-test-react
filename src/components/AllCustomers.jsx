@@ -36,16 +36,16 @@ function AllCustomers() {
       <TopNav />
       <nav className="nav">
         <Link className="nav-link" to={"/all-customers"}>
-          View All Customer Orders
+          查看所有客户订单
         </Link>
         <Link className="nav-link" to={"/all-pets"}>
-          View All Pet Orders
+          查看所有宠物订单
         </Link>
 
         <input style={{width: "50%"}} type="text" placeholder="Search.."/>
       </nav>
 
-      <h2>All Customer Specimen Orders</h2>
+      <h2>所有客户标本订单</h2>
 
       {
         data.map((item)=>{

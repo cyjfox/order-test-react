@@ -49,7 +49,7 @@ const UpdateCustomer = (props) => {
     <div className="form-container">
       <CustomerTopNav />
 
-      <h2>Update Customer Order Info</h2>
+      <h2>更新客户订单信息</h2>
       <form className="page-main-table">
         <div>
           <label htmlFor="last_name">姓氏:</label>
@@ -228,7 +228,7 @@ const UpdateCustomer = (props) => {
         </div>
 
         <div className="pad-div">
-          <label htmlFor="is_specimen_rejected">Is Specimen Rejected:</label>
+          <label htmlFor="is_specimen_rejected">是否已拒绝:</label>
           <input
             id="is_specimen_rejected"
             name="is_specimen_rejected"
