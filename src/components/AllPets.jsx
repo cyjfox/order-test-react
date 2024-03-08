@@ -7,12 +7,24 @@ import TopNav from './TopNav';
 function AllPets() {
   
   const [data, setData] = useState([])
-  
+  const [cancelled, setCancelled] = useState(true)
+
+
   useEffect(()=>{
-    fetch('http://localhost:5050/view-all-pets')
+    fetch(`http://${process.env.REACT_APP_ENDPOINT}/view-all-pets`)
       .then(res => res.json())
       .then(fetched => setData(fetched))
-  },[])
+  },[cancelled])
+
+
+    function handleCancel(order_id){
+    fetch(`http://${process.env.REACT_APP_ENDPOINT}/cancel-pet/${order_id}`)
+      .then(res => res.json())
+      .then(data => {
+        setCancelled(!cancelled)
+        console.log(data)
+      })
+  }
 
   return (
 
@@ -33,7 +45,7 @@ function AllPets() {
 
     {
       data.map((item)=>{
-         return <PetOrder details={item} />
+         return <PetOrder handleCancel={handleCancel} details={item} />
         })
     }
   </div>

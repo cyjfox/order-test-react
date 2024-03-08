@@ -176,8 +176,6 @@ function CustomerOrder(props) {
           </div>
 
           <div style={subStyle}>
-            <span style={spanStyle} > <span style={subSpan}>Receptio Date:(To be removed) </span> {details.reception_date}</span>
-            <span style={spanStyle} > <span style={subSpan}>Collection Time:(To be removed) </span> {details.collection_time}</span>
             <span style={spanStyle} > <span style={subSpan}>收样日期: </span> {details.collection_date}</span>
           </div>
 

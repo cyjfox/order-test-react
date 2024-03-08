@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/create-order.css";
 import CustomerTopNav from "./CustomerTopNav";
 import Cookies from 'universal-cookie';
@@ -9,6 +9,8 @@ const cookie = new Cookies()
 const UpdateCustomer = (props) => {
 
   const [formData, setFormData] = useState({})
+  const navigate = useNavigate()
+
 
   useEffect(()=>{
     const info = cookie.get('customer-info')
@@ -25,7 +27,7 @@ const UpdateCustomer = (props) => {
 
   const handleUpdate = ()=> {
     console.log(formData)
-    fetch(`http://localhost:5050/update-customer/${formData.order_id}`,{
+    fetch(`http://${process.env.REACT_APP_ENDPOINT}/update-customer/${formData.order_id}`,{
       method : "PUT",
       body : JSON.stringify(formData),
       headers : {
@@ -36,6 +38,9 @@ const UpdateCustomer = (props) => {
     .then(data =>{
       console.log(data)
         alert(data)
+        setTimeout('', 2000)
+        navigate(-1)
+        
     })
   }
 

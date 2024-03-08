@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/create-order.css";
 import CustomerTopNav from "./CustomerTopNav";
 import Cookies from "universal-cookie";
@@ -8,6 +8,10 @@ import Cookies from "universal-cookie";
 const cookie = new Cookies()
 
 const CreateCustomer = () => {
+
+  const navigate = useNavigate();
+
+
   const initialState = {
     last_name: "",
     first_name: "",
@@ -69,7 +73,7 @@ const CreateCustomer = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("http://localhost:5050/create-customer", {
+    fetch(`http://${process.env.REACT_APP_ENDPOINT}/create-customer`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json", // Set the content type header
@@ -77,7 +81,13 @@ const CreateCustomer = () => {
       body: JSON.stringify(formData), // Convert the body to JSON string
     })
       .then((res) => res.text())
-      .then((data) => alert(data));
+      .then((data) => {
+        alert(data)
+        if (data === 'successful'){
+          setTimeout('', 2000)
+          navigate('/user/customer/history')
+        }
+      });
   };
 
 

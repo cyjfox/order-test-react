@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import "../styles/create-order.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import TopNav from "./TopNav";
 import CustomerTopNav from "./CustomerTopNav";
+
 
 const CreatePet = () => {
   const initialState = {
@@ -49,6 +50,8 @@ const CreatePet = () => {
   };
 
   const [formData, setFormData] = useState(initialState);
+  const navigate = useNavigate();
+
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -61,7 +64,7 @@ const CreatePet = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("http://localhost:5050/create-pet", {
+    fetch(`http://${process.env.REACT_APP_ENDPOINT}/create-pet`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json", // Set the content type header
@@ -69,7 +72,11 @@ const CreatePet = () => {
       body: JSON.stringify(formData), // Convert the body to JSON string
     })
       .then((res) => res.text())
-      .then((data) => alert(data));
+      .then((data) => {
+        alert(data)
+        setTimeout('', 2000)
+        navigate('/user/pet/history')
+      });
   };
 
   return (

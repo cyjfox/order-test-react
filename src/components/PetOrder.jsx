@@ -111,10 +111,6 @@ export const PetOrder = (props) => {
             <span>{details.lab_id}</span>         
           </div>
 
-          <div style={leftSubContainer}>
-            <span  style={{backgroundColor: "lightskyblue", borderRadius: "5px", width:"100px"}}>顾客ID :</span>
-            <span>{details.customer_id}</span>           
-          </div>
 
           <div style={leftSubContainer}>
             <span  style={{backgroundColor: "lightyellow", borderRadius: "5px", width:"100px"}}>Status :</span>
