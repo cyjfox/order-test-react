@@ -231,7 +231,7 @@ const CreateCustomer = () => {
         </div>
 
         <div className="pad-div">
-          <label htmlFor="is_tailormade">是否为定制: </label>
+          <label htmlFor="is_tailormade">是否为定制样本: </label>
           <input
             id="is_tailormade"
             name="is_tailormade"
@@ -324,7 +324,7 @@ const CreateCustomer = () => {
 
         <div>
           <label className="label" htmlFor="s_quality">
-            S质量:
+            睡眠质量:
           </label>
           <input
             onChange={handleChange}

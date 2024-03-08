@@ -213,7 +213,7 @@ export const PetOrder = (props) => {
 
           <div style={subStyle}>
             <span style={spanStyle} > <span style={subSpan}>是否为免费样本: </span> {details.is_free_sample} </span>
-            <span style={spanStyle} > <span style={subSpan}>是否为定制: </span> {details.is_tailormade}</span>
+            <span style={spanStyle} > <span style={subSpan}>是否为定制样本: </span> {details.is_tailormade}</span>
             <span style={spanStyle} > <span style={subSpan}>报告完成日期: </span> {details.report_ready_date}</span>
             <span style={spanStyle} > <span style={subSpan}>备注:</span> {details.remarks} </span>
             <span style={spanStyle} > <span style={subSpan}>医疗历史:</span> {details.medical_history} </span>
