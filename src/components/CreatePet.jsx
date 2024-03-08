@@ -416,7 +416,7 @@ const CreatePet = () => {
 
         <div>
           <label class="label" htmlFor="s_quality">
-            S质量:
+            睡眠质量:
           </label>
           <input
             type="text"
