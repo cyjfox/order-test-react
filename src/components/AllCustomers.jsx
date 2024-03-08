@@ -16,13 +16,13 @@ function AllCustomers() {
   console.log(process.env.REACT_APP_ENDPOINT)
 
   useEffect(()=>{
-    fetch(`http://${process.env.REACT_APP_ENDPOINT}/view-all-customers`)
+    fetch(`https://${process.env.REACT_APP_ENDPOINT}/view-all-customers`)
       .then(res => res.json())
       .then(fetched => setData(fetched))
   },[cancelled])
 
   function handleCancel(order_id){
-    fetch(`http://${process.env.REACT_APP_ENDPOINT}/cancel-customer/${order_id}`)
+    fetch(`https://${process.env.REACT_APP_ENDPOINT}/cancel-customer/${order_id}`)
       .then(res => res.json())
       .then(data => {
         setCancelled(!cancelled)
