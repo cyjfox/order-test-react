@@ -309,7 +309,7 @@ const CreatePet = () => {
         </div>
 
         <div className="pad-div">
-          <label htmlFor="is_tailormade">是否为定制: </label>
+          <label htmlFor="is_tailormade">是否为定制样本: </label>
           <input
             id="is_tailormade"
             name="is_tailormade"
