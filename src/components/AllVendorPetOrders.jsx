@@ -9,13 +9,13 @@ export const AllVendorPetOrders = () => {
 
   useEffect(()=>{
     const username = encodeURIComponent('YUENG PO')
-    fetch(`http://${process.env.REACT_APP_ENDPOINT}/vendor/pet`)
+    fetch(`https://${process.env.REACT_APP_ENDPOINT}/vendor/pet`)
       .then(res => res.json())
       .then(fetched => setData(fetched))
   },[cancelled])
 
   function handleCancel(order_id){
-    fetch(`http://${process.env.REACT_APP_ENDPOINT}/${order_id}`)
+    fetch(`https://${process.env.REACT_APP_ENDPOINT}/${order_id}`)
       .then(res => res.json())
       .then(data => {
         setCancelled(!cancelled)

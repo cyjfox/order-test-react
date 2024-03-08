@@ -11,14 +11,14 @@ function AllPets() {
 
 
   useEffect(()=>{
-    fetch(`http://${process.env.REACT_APP_ENDPOINT}/view-all-pets`)
+    fetch(`https://${process.env.REACT_APP_ENDPOINT}/view-all-pets`)
       .then(res => res.json())
       .then(fetched => setData(fetched))
   },[cancelled])
 
 
     function handleCancel(order_id){
-    fetch(`http://${process.env.REACT_APP_ENDPOINT}/cancel-pet/${order_id}`)
+    fetch(`https://${process.env.REACT_APP_ENDPOINT}/cancel-pet/${order_id}`)
       .then(res => res.json())
       .then(data => {
         setCancelled(!cancelled)

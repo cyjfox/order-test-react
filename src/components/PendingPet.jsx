@@ -8,7 +8,7 @@ function PendingPet() {
   const [data, setData] = useState([])
 
   useEffect(()=>{
-    fetch(`http://${process.env.REACT_APP_ENDPOINT}/pending-pet`)
+    fetch(`https://${process.env.REACT_APP_ENDPOINT}/pending-pet`)
       .then(res => res.json())
       .then(fetched => setData(fetched))
   },[])

@@ -64,7 +64,7 @@ const CreatePet = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(`http://${process.env.REACT_APP_ENDPOINT}/create-pet`, {
+    fetch(`https://${process.env.REACT_APP_ENDPOINT}/create-pet`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json", // Set the content type header

@@ -27,7 +27,7 @@ const UpdateCustomer = (props) => {
 
   const handleUpdate = ()=> {
     console.log(formData)
-    fetch(`http://${process.env.REACT_APP_ENDPOINT}/update-customer/${formData.order_id}`,{
+    fetch(`https://${process.env.REACT_APP_ENDPOINT}/update-customer/${formData.order_id}`,{
       method : "PUT",
       body : JSON.stringify(formData),
       headers : {

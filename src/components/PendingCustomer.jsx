@@ -8,7 +8,7 @@ function PendingCustomer() {
   const [data, setData] = useState([])
   
   useEffect(()=>{
-    fetch(`http://${process.env.REACT_APP_ENDPOINT}/pending-customer`)
+    fetch(`https://${process.env.REACT_APP_ENDPOINT}/pending-customer`)
       .then(res => res.json())
       .then(fetched => setData(fetched))
   },[])
